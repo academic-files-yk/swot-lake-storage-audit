@@ -1,0 +1,322 @@
+{
+ "table1": {
+  "caption": "In-situ records and the evaluation sample (filter F_q0: quality_f = 0, no climatological ice, at least 10 consecutive pairs per lake).",
+  "columns": [
+   "Agency",
+   "Lakes",
+   "Pairs",
+   "Median area (km²)",
+   "Area range (km²)",
+   "Variables",
+   "Period"
+  ],
+  "rows": [
+   [
+    "USBR (RISE)",
+    "69",
+    "2,237",
+    "5.0",
+    "0.08–145",
+    "stage, storage, area (25)",
+    "Jun 2023–Oct 2026"
+   ],
+   [
+    "USGS (NWIS)",
+    "46",
+    "1,673",
+    "5.8",
+    "0.16–114",
+    "stage, storage",
+    "Jun 2023–Oct 2026"
+   ],
+   [
+    "TWDB",
+    "20",
+    "967",
+    "44.2",
+    "4.33–627",
+    "stage, storage, area",
+    "Jun 2023–Oct 2026"
+   ],
+   [
+    "CDEC",
+    "52",
+    "1,181",
+    "2.8",
+    "0.10–155",
+    "stage, storage",
+    "Jul 2023–Oct 2025"
+   ],
+   [
+    "Total",
+    "187",
+    "6,058",
+    "5.6",
+    "0.08–627",
+    "",
+    ""
+   ]
+  ],
+  "note": "Areas are the PLD reference areas. Number in parentheses: lakes with daily surface area. CDEC records were taken from the archived benchmark files [@Levenson2026data]."
+ },
+ "table2": {
+  "caption": "Accuracy of storage change between consecutive valid observations (median over lakes, 95% bootstrap interval in parentheses).",
+  "columns": [
+   "Estimator",
+   "Lakes",
+   "nRMSE",
+   "RMSE (10⁻³ km³)",
+   "r",
+   "Lakes better than ds1_l (%)"
+  ],
+  "rows": [
+   [
+    "Product ds1_l (Eq. 1)",
+    "187",
+    "0.27 (0.24–0.29)",
+    "1.54",
+    "0.984",
+    "–"
+   ],
+   [
+    "Product ds1_q (Eq. 2)",
+    "187",
+    "0.27 (0.24–0.29)",
+    "1.55",
+    "0.984",
+    "50"
+   ],
+   [
+    "Pairwise trapezoid (Eq. 4)",
+    "187",
+    "0.20 (0.16–0.23)",
+    "1.17",
+    "0.988",
+    "57"
+   ],
+   [
+    "SWOT hypsometry (Eq. 6)",
+    "187",
+    "0.18 (0.15–0.23)",
+    "1.06",
+    "0.988",
+    "66"
+   ],
+   [
+    "Level error only",
+    "170",
+    "0.15 (0.12–0.19)",
+    "0.89",
+    "0.988",
+    "72"
+   ],
+   [
+    "Area error only",
+    "170",
+    "0.08 (0.07–0.10)",
+    "0.66",
+    "0.999",
+    "91"
+   ]
+  ],
+  "note": "nRMSE is the RMSE of the storage-change error divided by the standard deviation of the in-situ storage change of the same pairs. The last two rows are diagnostic: they combine one SWOT input with in-situ data and are not SWOT-only estimators."
+ },
+ "table3": {
+  "caption": "Coverage of stated and empirical uncertainties for changes between consecutive observations.",
+  "columns": [
+   "Quantity and uncertainty",
+   "Pairs",
+   "Within ±1σ (%)",
+   "Within ±1.96σ (%)",
+   "Inflation factor k"
+  ],
+  "rows": [
+   [
+    "Level change (wse_u)",
+    "5,431",
+    "12",
+    "21",
+    "10.2"
+   ],
+   [
+    "Area change (area_tot_u)",
+    "1,482",
+    "4",
+    "9",
+    "19.4"
+   ],
+   [
+    "Storage change (ds1_l_u)",
+    "6,058",
+    "8",
+    "15",
+    "16.1"
+   ],
+   [
+    "Storage change, empirical model (Eq. 7), held-out lakes",
+    "–",
+    "61",
+    "82",
+    "1.08"
+   ],
+   [
+    "Trapezoid, empirical model, held-out lakes",
+    "–",
+    "62",
+    "85",
+    "1.09"
+   ]
+  ],
+  "note": "Nominal coverage is 68.3% and 95%. k is the normalised median absolute deviation of the standardised errors (1 for a calibrated Gaussian error). Empirical-model rows are medians of 100 two-fold splits by lake (parameters fitted on one half of the lakes, coverage computed on the other); area change uses the 44 lakes with in-situ area in the pair sample."
+ },
+ "tableS1": {
+  "caption": "Sensitivity of the main results (median per-lake nRMSE).",
+  "columns": [
+   "Case",
+   "Lakes",
+   "Pairs",
+   "ds1_l",
+   "Trapezoid",
+   "SWOT hypsometry",
+   "ds1_l_u ±1σ coverage (%)"
+  ],
+  "rows": [
+   [
+    "Main sample (F_q0)",
+    "187",
+    "6,058",
+    "0.27",
+    "0.20",
+    "0.18",
+    "8"
+   ],
+   [
+    "Filter: quality_f ≤ 1",
+    "231",
+    "10,309",
+    "0.51",
+    "0.46",
+    "0.45",
+    "12"
+   ],
+   [
+    "No quality filter",
+    "238",
+    "12,219",
+    "0.73",
+    "0.75",
+    "0.73",
+    "13"
+   ],
+   [
+    "Agency: USBR",
+    "69",
+    "2,237",
+    "0.26",
+    "0.19",
+    "0.17",
+    "8"
+   ],
+   [
+    "Agency: CDEC",
+    "52",
+    "1,181",
+    "0.20",
+    "0.10",
+    "0.10",
+    "9"
+   ],
+   [
+    "Agency: USGS",
+    "46",
+    "1,673",
+    "0.30",
+    "0.25",
+    "0.24",
+    "10"
+   ],
+   [
+    "Agency: TWDB",
+    "20",
+    "967",
+    "0.38",
+    "0.32",
+    "0.31",
+    "5"
+   ],
+   [
+    "Without CDEC archive",
+    "135",
+    "4,877",
+    "0.27",
+    "0.24",
+    "0.23",
+    "8"
+   ],
+   [
+    "PLD area: 0-10 km²",
+    "125",
+    "3,746",
+    "0.27",
+    "0.16",
+    "0.15",
+    "10"
+   ],
+   [
+    "PLD area: 10-100 km²",
+    "52",
+    "1,925",
+    "0.26",
+    "0.24",
+    "0.24",
+    "5"
+   ],
+   [
+    "PLD area: 100-max km²",
+    "10",
+    "387",
+    "0.39",
+    "0.27",
+    "0.26",
+    "3"
+   ],
+   [
+    "Pairs ≤ 11 days apart",
+    "69",
+    "2,018",
+    "0.66",
+    "0.61",
+    "0.60",
+    "10"
+   ],
+   [
+    "Pairs > 11 days apart",
+    "179",
+    "4,040",
+    "0.24",
+    "0.18",
+    "0.17",
+    "7"
+   ],
+   [
+    "Before 8 Apr 2025 (PGD0 era)",
+    "140",
+    "3,081",
+    "0.28",
+    "0.21",
+    "0.20",
+    "8"
+   ],
+   [
+    "From 8 Apr 2025",
+    "116",
+    "2,792",
+    "0.35",
+    "0.31",
+    "0.31",
+    "8"
+   ]
+  ],
+  "note": "All cases use the F_q0 filter except the two filter rows. The PGD0/PID0 split follows the change of processing baseline on 8 April 2025."
+ }
+}

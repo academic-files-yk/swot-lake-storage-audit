@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper and this repository."
+title: "swot-lake-storage-audit"
+authors:
+  - family-names: Kaya
+    given-names: Yunus
+    affiliation: "Department of Geomatics Engineering, Harran University, Türkiye"
+license: MIT
+repository-code: "https://github.com/academic-files-yk/swot-lake-storage-audit"
